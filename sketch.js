@@ -11,7 +11,7 @@ function preload() {
 }
 
 function setup() {
-    new Canvas(256, 256, 'pixelated x4');
+    new Canvas(128, 128, 'pixelated x4');
     allSprites.pixelPerfect = true;
 }
 
