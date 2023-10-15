@@ -19,7 +19,6 @@ function draw() {
     clear();
     if (kb.pressed('left'))  {
         kitty.changeAni('left');
-        kitty.vel.x = -1;
     }
 }
 
