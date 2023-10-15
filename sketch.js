@@ -1,64 +1,56 @@
 let kitty;
-let platform;
-let blocks;
-let landed = false;
+let block;
 
 function preload() {
-    kitty = new Sprite(90, 20, 14, 16);
+    kitty = new Sprite(20, 20, 14, 16);
     kitty.spriteSheet = 'assets/Basic Charakter Spritesheet 14x16.png';
     kitty.anis.frameDelay = 8;
     kitty.addAnis({
         front: { row: 0, frames: 4 },
-        left:  { row: 2, frames: 4 },
         back:  { row: 1, frames: 4 },
+        left:  { row: 2, frames: 4 },
+        right: { row: 3, frames: 4 },
     });
     kitty.changeAni('front');
 }
 
 function setup() {
-    new Canvas(256, 256, 'pixelated x4');
-    world.gravity.y = 10;
+    new Canvas(128, 128, 'pixelated x4');
 
-    platform = createSprite(50, 50, 100, 4);
-    platform.collider = 'static';
-
-	blocks = new Group();
-	blocks.width = 24;
-    blocks.height = 24;
-    blocks.collider = 'static';
-	
-	while (blocks.length < 12) {
-		let block = new blocks.Sprite();
-		block.x = random(width);
-        block.y = random(100,height);
-	}
+    block = createSprite(24, 24, 4, 4);
+    block.fill = "red";
+    block.stroke = "red";
+    block.drag = 1;
 
     allSprites.pixelPerfect = true;
-    allSprites.rotationLock = true;
+    allSprites.rotationLock = true
 }
 
 function draw() {
     clear();
-    if (kb.pressing('left'))  {
+    if (kb.pressing('down')) {
+        kitty.changeAni('front');
+        kitty.direction = 90;
+        kitty.speed = .5;
+    }
+    else if (kb.pressing('up')) {
+        kitty.changeAni('back');
+        kitty.direction = 270;
+        kitty.speed = .5;
+    }
+    else if (kb.pressing('left'))  {
         kitty.changeAni('left');
+        kitty.direction = 180;
         kitty.mirror.x = false;
-        kitty.vel.x = -1;
+        kitty.speed = .5;
     }
     else if (kb.pressing('right')) {
         kitty.changeAni('left');
+        kitty.direction = 0;
         kitty.mirror.x = true;
-        kitty.vel.x = 1;
-    } else if (kb.released('up') && landed) {
-        kitty.changeAni('back');
-        kitty.vel.y = -4;
-        landed = false;
+        kitty.speed = .5;
     }
-
-    if (kitty.collides(blocks) || kitty.collides(platform)) landed = true;
-
-    if (kitty.y > height) {
-        kitty.y = 20;
-        kitty.x = 90
+    else {
+        kitty.speed = 0;
     }
 }
-
