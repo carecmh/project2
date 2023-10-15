@@ -1,1 +1,1 @@
-# p5play sprites demo
+# p5play spritesheet demo
