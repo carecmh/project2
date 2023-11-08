@@ -2,8 +2,11 @@ let time
 let p1
 let p2
 let p3
+let playagain
 
 function setup(){
+    new Canvas(700, 700);
+
     time = createP("0:00")
     time.position (100, 75);
 
@@ -17,9 +20,21 @@ function setup(){
     p3 = createP("How's your self-worth now?");
     p3.position(100, 150);
     p3.style("color", "red");
+
+    playagain = new Sprite ()
+    playagain.height = 30;
+    playagain.width = 100;
+    playagain.color = "white";
+    playagain.text = "Play again";
+    playagain.textSize = 10;
+
+    
+   
 }
 
 function draw(){
-    if (millis > 75000);
-    location.replace("index.html");
+    clear()
+
+    if(playagain.mouse.pressed())
+    location.replace()
 }
