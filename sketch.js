@@ -3,15 +3,16 @@ var counter = 0;
 var timeleft = 65;
 
 function preload() {
-    pacman = new Sprite(100, 300, 252, 252);
-    pacman.spriteSheet = 'assets/pacman spritesheet.jpeg';
-    pacman.anis.frameDelay = 3;
+    pacman = new Sprite(100, 50, 99, 97.25);
+    pacman.spriteSheet = 'assets/pacsprite.png';
+    pacman.anis.frameDelay = 4;
     pacman.addAnis({
         right: { row: 0, frames: 3 },
         up:  { row: 1, frames: 3 },
         left:  { row: 2, frames: 3 },
         down: {row:3, frames: 3}
     });
+    pacman.changeAni('right');
     
 }
 
@@ -35,7 +36,7 @@ function setup() {
     timer.html(convertSeconds(timeleft - counter));
     if (counter == timeleft){
         clearInterval(interval);
-        //counter = 0;
+        location.replace("part2.html");
     }
     }
 
@@ -275,22 +276,22 @@ function draw() {
       
     if (kb.pressed('left'))  {
         pacman.changeAni('left');
-        pacman.vel.x = -3;
+        pacman.vel.x = -1;
         pacman.vel.y = 0;
     }
     if (kb.pressed('up')) {
         pacman.changeAni('up');
-        pacman.vel.y = -3;
+        pacman.vel.y = -1;
         pacman.vel.x = 0;
     }
     if (kb.pressed('down')) {
         pacman.changeAni('down');
-        pacman.vel.y = 3;
+        pacman.vel.y = 1;
         pacman.vel.x = 0;
     }
     if (kb.pressed('right')) {
         pacman.changeAni('right');
-        pacman.vel.x = 3;
+        pacman.vel.x = 1;
         pacman.vel.y = 0;
     }
 
@@ -320,8 +321,12 @@ function draw() {
     if (pacman.overlaps(s24)) s24.remove();
     if (pacman.overlaps(s25)) s25.remove();
 
-}
+    if (s1 && s2 && s3 && s4 && s5 && s6 && s7 && s8 && s9 && s10 &&s11 && s12 && s13 && s14 && s15 && s16 && s17 && s18 && s19 && s20 && s21 && s22 && s23 && s24 && s25.removed)
+        location.replace("win.html");
+        
+    }
 
+    
 
 
 
