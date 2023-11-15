@@ -9,13 +9,14 @@ function setup(){
 
     p1 = createP("YOU WIN");
     p1.position(100, 100)
+    p1.style("font-size", "30px")
     p1.style("color", "green");
 
     p2 = createP("You collected all your passions.");
-    p2.position (100, 125);
+    p2.position (100, 150);
 
     p3 = createP("But, how's your self-worth now?");
-    p3.position(100, 150);
+    p3.position(100, 175);
     p3.style("color","red");
     
     playagain = new Sprite ()
@@ -24,6 +25,8 @@ function setup(){
     playagain.color = "white";
     playagain.text = "Play again";
     playagain.textSize = 10;
+    playagain.x = 150
+    playagain.y = 200
 
 }
 
@@ -31,7 +34,7 @@ function draw(){
     clear()
 
     if(playagain.mouse.pressed())
-    location.replace()
+    location.replace("index.html")
 }
 
 
