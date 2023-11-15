@@ -3,14 +3,11 @@ let p1
 let p2
 let p3
 let play1
-var interval
 
 
 function setup(){
 
     new Canvas(700, 700);
-
-    var interval = setInterval(0)
 
     time = createP("00:00")
     time.position (100, 75);

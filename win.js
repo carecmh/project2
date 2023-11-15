@@ -26,7 +26,7 @@ function setup(){
     playagain.text = "Play again";
     playagain.textSize = 10;
     playagain.x = 150
-    playagain.y = 200
+    playagain.y = 225
 
 }
 

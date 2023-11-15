@@ -3,6 +3,12 @@ var counter = 0;
 var timeleft = 60;
 var interval
 let doubt
+let doubt2
+let doubt3
+let doubt4
+let doubt5
+let doubt6
+let mysound
 
 
 function preload() {
@@ -17,6 +23,63 @@ function preload() {
     });
     pacman.changeAni('right');
     
+    doubt = new Sprite();
+    doubt.img = 'assets/doubts1.png';
+    doubt.w = 10;
+    doubt.h = 10;
+    doubt.x = random(100,800);
+    doubt.y = random(100,800);
+    doubt.scale = 2;
+    doubt.collider = 'static';
+
+    doubt2 = new Sprite();
+    doubt2.img = 'assets/doubts1.png';
+    doubt2.w = 10;
+    doubt2.h = 10;
+    doubt2.x = random(100,800);
+    doubt2.y = random(100,800);
+    doubt2.scale = 2
+    doubt2.collider = 'static';
+
+    doubt3 = new Sprite();
+    doubt3.img = 'assets/doubts1.png';
+    doubt3.w = 10;
+    doubt3.h = 10;
+    doubt3.x = random(100,800);
+    doubt3.y = random(50,700);
+    doubt3.scale = 2;
+    doubt3.collider = 'static';
+
+    doubt4 = new Sprite();
+    doubt4.img = 'assets/doubts1.png';
+    doubt4.w = 10;
+    doubt4.h = 10;
+    doubt4.x = random(100,800);
+    doubt4.y = random(50,700);
+    doubt4.scale = 2;
+    doubt4.collider = 'static';
+   
+    doubt5 = new Sprite();
+    doubt5.img = 'assets/doubts1.png';
+    doubt5.w = 10;
+    doubt5.h = 10;
+    doubt5.x = random(100,800);
+    doubt5.y = random(50,700);
+    doubt5.scale = 2;
+    doubt5.collider = 'static'
+
+    doubt6 = new Sprite();
+    doubt6.img = 'assets/doubts1.png';
+    doubt6.w = 10;
+    doubt6.h = 10;
+    doubt6.x = random(100,800);
+    doubt6.y = random(100,800);
+    doubt6.scale = 2;
+    doubt6.collider = 'static';
+
+    soundFormats('mp3', 'ogg', 'wav');
+    mysound = loadSound('assets/gameover');
+
 }
 
 function convertSeconds(s){
@@ -43,6 +106,7 @@ function setup() {
     timer.html(convertSeconds(timeleft - counter));
     if (counter == timeleft){
         clearInterval(interval);
+        mysound.play()
     
     }
     }
@@ -334,7 +398,35 @@ function draw() {
     if (s1.removed && s2.removed && s3.removed && s4.removed && s5.removed && s6.removed && s7.removed && s8.removed && s9.removed && s10.removed && s11.removed && s12.removed && s13.removed && s14.removed && s15.removed && s16.removed && s17.removed && s18.removed && s19.removed && s20.removed && s21.removed && s22.removed && s23.removed && s24.removed && s25.removed)
         location.replace("win.html");
 
+    if (pacman.overlaps(doubt)){
+        location.replace("part2.html");
+        mysound.play()
+    }
 
+    if (pacman.overlaps(doubt2)){
+        location.replace("part2.html");
+        mysound.play();
+    }
+    
+    if (pacman.overlaps(doubt3)){
+        location.replace("part2.html");
+        mysound.play();
+    }
+    
+    if (pacman.overlaps(doubt4)){
+        location.replace("part2.html");
+        mysound.play();
+    }
+    
+    if (pacman.overlaps(doubt5)){
+        location.replace("part2.html");
+        mysound.play();
+    }
+    
+    if (pacman.overlaps(doubt6)){
+        location.replace("part2.html");
+        mysound.play();
+    }
     
 
     }
